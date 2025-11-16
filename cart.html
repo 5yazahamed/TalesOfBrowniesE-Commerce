@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Tales of Brownies</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Tales of Brownies</h1>
+            <nav>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="cart.html" class="nav-link active">Cart</a>
+                <a href="admin.html" class="nav-link">Admin</a>
+            </nav>
+            <div class="cart-icon" id="cartIcon">
+                <span class="cart-badge" id="cartBadge">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="cart-section">
+            <h2>Your Shopping Cart</h2>
+            
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+
+            <div class="cart-actions" id="cartActions" style="display: none;">
+                <div class="cart-summary">
+                    <p><strong>Total: <span id="grandTotal">Rs. 0</span></strong></p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-secondary" id="clearCartBtn">Clear Cart</button>
+                    <button class="btn-primary" id="payNowBtn">Pay Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Customer Information Form Modal -->
+    <div class="modal" id="customerFormModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Customer Information</h2>
+                <button class="close-modal" id="closeCustomerForm">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="customerForm">
+                    <label>
+                        Full Name: *
+                        <input type="text" id="customerName" required placeholder="Enter your full name">
+                    </label>
+                    <label>
+                        Phone Number: *
+                        <input type="tel" id="customerPhone" required placeholder="Enter your phone number" pattern="[0-9]{10}">
+                    </label>
+                    <label>
+                        Address: *
+                        <textarea id="customerAddress" required placeholder="Enter your delivery address" rows="3"></textarea>
+                    </label>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelCustomerForm">Cancel</button>
+                        <button type="submit" class="btn-primary">Continue to Payment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Summary Modal -->
+    <div class="modal" id="orderModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Order Summary</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="order-details" id="orderDetails">
+                    <!-- Order details will be populated by JavaScript -->
+                </div>
+                <div class="qr-code-container" id="qrCodeContainer">
+                    <!-- QR code will be generated here -->
+                </div>
+                <div class="whatsapp-link-container" id="whatsappLinkContainer" style="display: none;">
+                    <!-- WhatsApp link will be shown here after payment -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
+
